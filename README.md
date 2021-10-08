@@ -1,4 +1,4 @@
-# ROS master in Docker [![](https://img.shields.io/docker/pulls/frankjoshua/ros-master)](https://hub.docker.com/r/frankjoshua/ros-master) [![CI](https://github.com/frankjoshua/docker-ros-master/workflows/CI/badge.svg)](https://github.com/frankjoshua/docker-ros-master/actions)
+# ROS master in Docker [![](https://img.shields.io/docker/pulls/frankjoshua/ros2-master)](https://hub.docker.com/r/frankjoshua/ros2-master) [![CI](https://github.com/frankjoshua/docker-ros2-master/workflows/CI/badge.svg)](https://github.com/frankjoshua/docker-ros2-master/actions)
 
 ## Description
 
@@ -13,7 +13,7 @@ docker run -it \
     --network="host" \
     --env="ROS_IP=$ROS_IP" \
     --env="ROS_MASTER_URI=$ROS_MASTER_URI" \
-    frankjoshua/ros-master
+    frankjoshua/ros2-master
 ```
 
 ## Building
@@ -23,7 +23,7 @@ Use [build.sh](build.sh) to build the docker containers.
 <br>Local builds are as follows:
 
 ```
-./build.sh -t frankjoshua/ros-master -l
+./build.sh -t frankjoshua/ros2-master -l
 ```
 
 ## Template
