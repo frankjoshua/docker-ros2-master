@@ -11,8 +11,6 @@ This repo is mostly an example of how to build a multi architecture docker conta
 ```
 docker run -it \
     --network="host" \
-    --env="ROS_IP=$ROS_IP" \
-    --env="ROS_MASTER_URI=$ROS_MASTER_URI" \
     frankjoshua/ros2-master
 ```
 
