@@ -2,7 +2,7 @@
 
 ## Description
 
-Runs a ros master in a Docker container. Probably need --network="host" because ROS uses ephemeral ports.
+Runs a ros master in a Docker container. Probably need --network="host" because ROS uses ephemeral ports. --ipc=host is needed to allow shared memory between processes for dds when multiple containers are on the same machine. --pid=host is needed for unique guid in dds to avoid possible id conflicts.
 
 This repo is mostly an example of how to build a multi architecture docker container with ROS (Robotic Operating System). Github Actions is used to build 3 docker containers using `docker buildx` amd64 (x86 Desktop PC), arm64 (Jetson Nano) and arm32 (Raspberry Pi). This is for the purpose of developing locally on a work pc or laptop. Then being able to transfer your work to an embedded device with a high level of confidence of success.
 
@@ -10,7 +10,9 @@ This repo is mostly an example of how to build a multi architecture docker conta
 
 ```
 docker run -it \
-    --network="host" \
+    --network=host \
+    --ipc=host \
+    --pid=host \
     frankjoshua/ros2-master
 ```
 
