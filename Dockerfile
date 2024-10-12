@@ -13,11 +13,21 @@ FROM frankjoshua/ros2
 #    && rm -rf /var/lib/apt/lists/*
 # ENV DEBIAN_FRONTEND=dialog
 
-
-USER root
 WORKDIR /root
+
 COPY ros2_ws ros2_ws
-RUN cd ros2_ws && . install/setup.sh && colcon build
+
+# Install all dependencies for the workspace
+RUN apt-get update && \
+    cd ros2_ws && \
+    rosdep update && \
+    rosdep install --from-paths src --ignore-src -r -y && \
+    rm -rf /var/lib/apt/lists/*
+
+# Build the workspace using colcon
+RUN cd ros2_ws \
+    && . /opt/ros/$ROS_DISTRO/setup.sh \
+    && colcon build --symlink-install
 
 COPY ros_entrypoint.sh /ros_entrypoint.sh
 RUN chmod +x /ros_entrypoint.sh
