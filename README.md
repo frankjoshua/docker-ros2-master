@@ -26,6 +26,11 @@ Use [build.sh](build.sh) to build the docker containers.
 ./build.sh -t frankjoshua/ros2-master -l
 ```
 
+To build for both amd64 and arm64. Also push to docker hub.
+```
+./build.sh -t frankjoshua/ros2-master -p
+```
+
 ## Template
 
 This repo is a GitHub template. Just change the repo name in [.github/workflows/ci.yml](.github/workflows/ci.yml) and edit [Dockerfile](Dockerfile) and [README.md](README.md) to taste.
